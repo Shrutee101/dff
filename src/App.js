@@ -5,12 +5,14 @@ import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 
 import { Routes, Route } from "react-router-dom";
+import Footer from './components/Footer';
+
 
 
 function App() {
   return (
     <>
-    <Header Home="main"/>
+    <Header/>
     {/* <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/contactus" element={<Contactus/>}/>
@@ -20,7 +22,7 @@ function App() {
 
     <Home/>
     
-
+    <Footer/>
 
 
     </>

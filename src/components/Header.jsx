@@ -30,8 +30,8 @@ export const Header = () => {
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="mx-auto "
-            style={{ maxHeight: '100px' }}
-            navbarScroll
+            
+            
           >
             
             

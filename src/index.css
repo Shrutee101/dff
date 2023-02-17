@@ -56,4 +56,12 @@ code {
   background-color: antiquewhite;
 } */
 
+#cardc{
+  margin: auto;
+  margin-left: "133px";
+}
 
+#cities{
+  width: 1350px;
+  margin-left: 100px;
+}
