@@ -1,5 +1,4 @@
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
@@ -8,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import { Image } from "react-bootstrap";
 import CardGroup from "react-bootstrap/CardGroup";
 import Form from "react-bootstrap/Form";
-import Dropdown from "react-bootstrap/Dropdown";
+
 import DropdownButton from "react-bootstrap/DropdownButton";
 import { useState } from "react";
 import {
@@ -17,621 +16,788 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { Avatar, Skeleton, Switch } from "antd";
+import { Slider } from "antd";
 
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { DownOutlined } from "@ant-design/icons";
+import { Dropdown, message, Space } from "antd";
+import { Slider2 } from "./Slider2";
+import { Projects } from "./Projects";
 
-
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 export const Home = () => {
   return (
     <>
       <div>
-        <div id="cont1" style={{ height: "411px" }}>
-          {/* <img
-          src="../cityview8.jpg"
+        <div id="cont1">
+          <img
+            // src="../greyb1.jpg"
+            src="../blueb2.jpg"
+            alt="your-image-alt-text-here"
+            style={{ width: "100%", height: "350px" }}
+          />
+
+          {/* <div style={{paddingLeft:"300px",paddingTop:"150px"}}>
+          <img
+          src="../map.jpg"
           alt="your-image-alt-text-here"
-          style={{ width: "1896",height:"422" }}
-        /> */}
+          style={{ width: "18rem",height:"9rem" }}
+        />
+        </div> */}
 
           <div>
-          <div>
-            <center>
-              <div id="cont2">
-                <Row>
-                  <div className="mx-auto">
-                    <Col md={4} style={{ width: "70%" }}>
-                      <Card>
-                        <Card.Body>
-                          {/* <Card.Title>Card 1</Card.Title> */}
-                          <Card.Text style={{ color: "gray" }}></Card.Text>
-                          <Card.Text
-                            style={{ fontSize: "20px", fontWeight: "800px" }}
-                          >
-                            <Row>
-                              <Col>Buy</Col>
-                              <Col>Rent</Col>
-                              <Col>PG/Co-living</Col>
-                              <Col>Commercial</Col>
-                              <Col>Plots/Land</Col>
-                              <Col>Project</Col>
-                            </Row>
-                            <Row>
-                              <Col>
-                                {" "}
-                                <DropdownButton
-                                  id="dropdown-basic-button"
-                                  title="Dropdown button"
-                                >
-                                  <Dropdown.Item href="#/action-1">
-                                    Action
-                                  </Dropdown.Item>
-                                  <Dropdown.Item href="#/action-2">
-                                    Another action
-                                  </Dropdown.Item>
-                                  <Dropdown.Item href="#/action-3">
-                                    Something else
-                                  </Dropdown.Item>
-                                </DropdownButton>
-                              </Col>
-                            </Row>
-                          </Card.Text>
-                        </Card.Body>
-                      </Card>
-                    </Col>
-                  </div>
+            <div className="cont2">
+              <div style={{ margin: "20px", paddingLeft: "40px" }}>
+                <Row style={{ height: "30px" }}>
+                  <Col>
+                    <b>Buy</b>
+                  </Col>
+                  <Col>
+                    <b>Rent</b>
+                  </Col>
+
+                  <Col>
+                    <b>Co-Living</b>
+                  </Col>
+                  <Col>
+                    <b>Plots & Land</b>
+                  </Col>
+
+                  <Col>
+                    <b>Projects</b>
+                  </Col>
                 </Row>
               </div>
-            </center>
-          </div>
-          </div>
-        </div>
+              <hr />
+              <div style={{ margin: "12px" }}>
+                <Row>
+                  <Col>
+                    <Form className="d-flex">
+                      <div
+                        style={{
+                          paddingTop: "5px",
+                          color: "blue",
+                          marginLeft: "10px",
+                          paddingLeft: "5px",
+                        }}
+                      >
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                      </div>
 
-        <div className="mt-5"></div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div style={{ width: "1000px" }}>
-          <h3>Recommended Properties</h3>
-          <h5>Curated especially for you</h5>
+                      <Form.Control
+                        type="search"
+                        placeholder="Search Property Here"
+                        className="me-2"
+                        aria-label="Search"
+                        style={{ marginLeft: "20px", border: "0px" }}
+                      />
 
-          <hr className="mx-auto" style={{ width: "100%" }} />
-          <div id="cardc" style={{ width: "1000px" }}>
-            <Container>
-              <Row className="mt-3">
-                <Col xs={{ order: "last" }}>
-                  <div class="col-sm">
-                    <Card style={{ width: "13rem" }}>
-                      <Card.Img variant="top" src="../banglow.webp" />
-                      <Card.Body>
-                        <Card.Title>Kothrud</Card.Title>
-                        <Card.Text>
-                          <h6>Locality Insight</h6>
-                        </Card.Text>
-                        {/* <Button variant="primary">Buy Now</Button> */}
-                      </Card.Body>
-                    </Card>
-                  </div>
-                </Col>
-                <Col xs={{ order: "last" }}>
-                  <div class="col-sm">
-                    <Card style={{ width: "13rem" }}>
-                      <Card.Img variant="top" src="../blueb.jpeg"  />
-                      <Card.Body>
-                        <Card.Title>Baner</Card.Title>
-                        <Card.Text>
-                          <h6>Locality Insight</h6>
-                        </Card.Text>
-                        {/* <Button variant="primary">Buy Now</Button> */}
-                      </Card.Body>
-                    </Card>
-                  </div>
-                </Col>
-                <Col>
-                  <div class="col-sm">
-                    <Card style={{ width: "13rem" }}>
-                      <Card.Img variant="top" src="../bluebuilding.jpeg" />
-                      <Card.Body>
-                        <Card.Title>Karve Nagar</Card.Title>
-                        <Card.Text>
-                          <h6>Locality Insight</h6>
-                        </Card.Text>
-                        {/* <Button variant="primary">Buy Now</Button> */}
-                      </Card.Body>
-                    </Card>
-                  </div>
-                </Col>
-                <Col xs={{ order: "first" }}>
-                  <div class="col-sm">
-                    <Card style={{ width: "13rem" }}>
-                      <Card.Img variant="top" src="../pinkb.jpeg" />
-                      <Card.Body>
-                        <Card.Title>Hinjewadi</Card.Title>
-                        <Card.Text>
-                          <h6>Locality Insight</h6>
-                        </Card.Text>
-                        {/* <Button variant="primary">Buy Now</Button> */}
-                      </Card.Body>
-                    </Card>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
+                      <div
+                        style={{
+                          paddingTop: "5px",
+                          marginLeft: "20px",
+                          // marginRight: "20px",
+                          color: "blue",
+                        }}
+                      >
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </div>
+                      <div
+                        style={{
+                          paddingTop: "5px",
+                          marginLeft: "20px",
+                          marginRight: "20px",
+                          color: "blue",
+                        }}
+                      >
+                        <i class="fa fa-microphone" aria-hidden="true"></i>
+                      </div>
+
+                      <Button variant="primary">Search</Button>
+                    </Form>
+                  </Col>
+                </Row>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="mt-5" style={{ width: "1000px" }}>
-          <h3>Homes by furnishing</h3>
-          <h5>Choose your preferred furnishing</h5>
-
-          <hr className="mx-auto" style={{ width: "100%" }} />
+        <div style={{ paddingTop: "90px", marginLeft: "490px" }}>
+          <Form className="d-flex">
+            <div style={{ margin: "5px", paddingTop: "10px" }}>
+              <h5> Recent searches:</h5>
+            </div>
+            <div>
+              <Button
+                variant="light"
+                style={{ margin: "5px", borderRadius: "20px" }}
+              >
+                <i class="fa fa-undo" aria-hidden="true"></i>&ensp;PG in
+                Hinjewadi Phase1....
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="light"
+                style={{ margin: "5px", borderRadius: "20px" }}
+              >
+                <i class="fa fa-clock-o" aria-hidden="true"></i>&ensp;View all
+                searches
+              </Button>
+            </div>
+          </Form>
         </div>
 
-        <div style={{ width: "1000px" }}>
-          <Container>
-            <Row className="mt-3">
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../furnished.webp" />
-                    <Card.Body>
-                      <Card.Title>Furnished</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../semifurnished.webp" />
-                    <Card.Body>
-                      <Card.Title>Semifurnished</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../unfurnished.webp" />
-                    <Card.Body>
-                      <Card.Title>Unfurnished</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-
-
-
-        <div className="mt-5" style={{ width: "1000px" }}>
-          <h3>Homes by furnishing</h3>
-          <h5>Choose your preferred furnishing</h5>
-
-          <hr className="mx-auto" style={{ width: "100%" }} />
-        </div>
-
-
-        <div style={{ width: "1000px" }}>
-          <Container>
-            <Row className="mt-3">
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../1stcard1.png" style={{width:"315px",height:"400px"}} />
-                    
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../2ndcard2.png" style={{width:"315px",height:"400px"}}/>
-                    
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../3rdcard2.png" style={{width:"315px",height:"400px"}}/>
-                    
-                  </Card>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-
-        <div className="mt-5" style={{ width: "1000px" }}>
-          <h3>Localities you may like</h3>
-          <h5>based on the localities you have explored in Pune</h5>
-
-          <hr className="mx-auto" style={{ width: "100%" }} />
-        </div>
-
-        <div style={{ width: "1000px" }}>
-          <Container>
-            <Row className="mt-3">
-              <Col >
-                <div class="col-sm">
-                  <Card style={{ width: "13rem" }}>
-                    <Card.Img variant="top" src="../pic1.jpeg" />
-                    <Card.Body>
-                      <Card.Title>Wakad</Card.Title>
-                      <Card.Text>
-                        <h6>Locality Insight</h6>
-                      </Card.Text>
-                      {/* <Button variant="primary">Buy Now</Button> */}
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "13rem" }}>
-                    <Card.Img variant="top" src="../pic4.webp" />
-                    <Card.Body>
-                      <Card.Title>Baner</Card.Title>
-                      <Card.Text>
-                        <h6>Locality Insight</h6>
-                      </Card.Text>
-                      {/* <Button variant="primary">Buy Now</Button> */}
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "13rem" }}>
-                    <Card.Img variant="top" src="../pic2.jpeg" />
-                    <Card.Body>
-                      <Card.Title>Karve Nagar</Card.Title>
-                      <Card.Text>
-                        <h6>Locality Insight</h6>
-                      </Card.Text>
-                      {/* <Button variant="primary">Buy Now</Button> */}
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "13rem" }}>
-                    <Card.Img variant="top" src="../pic3.jpeg" />
-                    <Card.Body>
-                      <Card.Title>Balewadi</Card.Title>
-                      <Card.Text>
-                        <h6>Locality Insight</h6>
-                      </Card.Text>
-                      {/* <Button variant="primary">Buy Now</Button> */}
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-
-        <div className="mt-5" style={{ width: "1000px" }}>
-          <h3>Homes with AC, food and more</h3>
-          <h5>Choose your prefered amenities and services</h5>
-
-          <hr className="mx-auto" style={{ width: "100%" }} />
-        </div>
-
-        <div style={{ width: "1000px" }}>
-          <Container>
-            <Row className="mt-3">
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../wifi.webp" />
-                    <Card.Body>
-                      <Card.Title>Wifi</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../foodservice.webp" />
-                    <Card.Body>
-                      <Card.Title>Food Service</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../acroom.webp" />
-                    <Card.Body>
-                      <Card.Title>AC Room</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-
-        <div className="mt-5" style={{paddingLeft:"100px"}}>
-          <h3>Top articles on home buying</h3>
-          
-
-        </div>
-        <div className="mt-5"></div>
-        <div className="mt-5"></div>
+        <div className="mt-4"></div>
 
         <div>
-          <Container>
-            <Row className="mt-3">
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../3buildings.jpeg" />
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Nestaway Technologies Pvt Ltd</h5>
-                      </Card.Title>
-                      <Card.Text>70+ Listings in this city</Card.Text>
-                    </Card.Body>
-                  </Card>
+          <div>
+            <Row>
+              <Col sm={8} style={{ width: "900px", marginLeft: "120px" }}>
+                <Row>
+                  <div>
+                    <div>
+                      <h5>
+                        <b>Continue browsing...</b>
+                      </h5>
+                      <Form className="d-flex">
+                        <div>
+                          <Button
+                            variant="light"
+                            style={{ margin: "5px", borderRadius: "20px" }}
+                          >
+                            <i
+                              class="fa fa-shopping-cart"
+                              aria-hidden="true"
+                              style={{ color: "blue" }}
+                            ></i>
+                            &ensp;Buy in Pune
+                          </Button>
+                        </div>
+                        <div>
+                          <Button
+                            variant="light"
+                            style={{ margin: "5px", borderRadius: "20px" }}
+                          >
+                            <i
+                              class="fa fa-bed"
+                              aria-hidden="true"
+                              style={{ color: "blue" }}
+                            ></i>
+                            &ensp;PG in Pune
+                          </Button>
+                        </div>
+                        <div>
+                          <Button
+                            variant="light"
+                            style={{ margin: "5px", borderRadius: "20px" }}
+                          >
+                            <i
+                              class="fa fa-location-arrow"
+                              aria-hidden="true"
+                              style={{ color: "blue" }}
+                            ></i>
+                            &ensp;Explore New City
+                          </Button>
+                        </div>
+                      </Form>
+                      <hr />
+                    </div>
+                  </div>
+                </Row>
+                <Row>
+                  <div className="mt-3"></div>
+                  <h3>
+                    <b>Recommended Properties</b>
+                  </h3>
+                  <h5>Curated especially for you</h5>
+                  <div className="mt-3"></div>
+                  <Carousel responsive={responsive}>
+                    <div>
+                      <Col xs={{ order: "last" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../banglow.webp"
+                              style={{ height: "12rem",borderRadius:"10px" }}
+                            />
+                            <Card.Body>
+                              <Card.Title>
+                                <b>Kothrud</b>
+                                <h6>3BHK Luxury Villa</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      {" "}
+                      <Col xs={{ order: "last" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../blueb.jpeg"
+                              style={{ height: "12rem",borderRadius:"10px" }}
+                            />
+                            <Card.Body>
+                              <Card.Title>
+                                <b>Baner</b>
+                                <h6>1BHK , 2BHK Homes</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div style={{ paddingLeft: "0px" }}>
+                      <Col>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../bluebuilding.jpeg"
+                              style={{ height: "12rem" ,borderRadius:"10px"}}
+                            />
+                            <Card.Body>
+                              <Card.Title>
+                                <b>Karvenagar</b>
+                                <h6>1BHK Homes</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      {" "}
+                      <Col xs={{ order: "first" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../pinkb.jpeg"
+                              style={{ height: "12rem",borderRadius:"10px" }}
+                            />
+                            <Card.Body>
+                              <Card.Title>
+                                <b>Hinjewadi</b>
+                                <h6>Locality Insight</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      <Col xs={{ order: "last" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../slidern3.webp"
+                              style={{ height: "12rem",borderRadius:"10px" }}
+                            />
+                            <Card.Body>
+                              <Card.Title>
+                                <b>Wakad</b>
+                                <h6>Locality Insight</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      <Col xs={{ order: "last" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../slidern2.jpeg"
+                              style={{ height: "12rem" ,borderRadius:"10px"}}
+                            />
+                            <Card.Body>
+                              <Card.Title>
+                                <b>Shivajinagar</b>
+                                <h6>Locality Insight</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      {" "}
+                      <Col xs={{ order: "first" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../slidern1.jpeg"
+                              style={{ height: "12rem" ,borderRadius:"10px"}}
+                            />
+                            <Card.Body>
+                              <Card.Title>
+                                <b>Balewadi</b>
+                                <h6>Locality Insight</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      {" "}
+                      <Col xs={{ order: "first" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../slider4.webp"
+                              style={{ height: "12rem" ,borderRadius:"10px"}}
+                            />
+                            <Card.Body>
+                              <Card.Title>
+                                <b>Katraj</b>
+                                <h6>Locality Insight</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+                  </Carousel>
+                </Row>
+
+                <Row>
+                  <div className="mt-5"></div>
+                  <h3>
+                    <b>Localities you may like</b>
+                  </h3>
+                  <h5>based on the localities you have explored in Pune</h5>
+                  <div className="mt-3"></div>
+                  <Slider2 />
+                </Row>
+
+                <Row>
+                  <div className="mt-5"></div>
+                  <h3>
+                    <b>Recommended Insights</b>
+                  </h3>
+                  <h5>based on your search results & history</h5>
+                  <div className="mt-3"></div>
+                  <Carousel responsive={responsive}>
+                    <div>
+                      <Col xs={{ order: "last" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../Rinsight1.png"
+                              style={{ height: "13rem" }}
+                            />
+                            <Card.Body style={{paddingLeft:"0px",paddingTop:"10px"}}>
+                              <Card.Title>
+                                <h6>Lotus Urban Homes,Charoli</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      {" "}
+                      <Col xs={{ order: "last" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../Rinsight2.png"
+                              style={{ height: "13rem" }}
+                            />
+                            <Card.Body style={{paddingLeft:"0px",paddingTop:"10px"}}>
+                              <Card.Title>
+                                <h6>Amarnath River,Charoli</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div style={{ paddingLeft: "0px" }}>
+                      <Col>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../Rinsight3.png"
+                              style={{ height: "13rem" }}
+                            />
+                            <Card.Body style={{paddingLeft:"0px",paddingTop:"10px"}}>
+                              <Card.Title>
+                                <h6>Prapti Homes,Hinjewadi</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      {" "}
+                      <Col xs={{ order: "first" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../Rinsight4.png"
+                              style={{ height: "13rem" }}
+                            />
+                            <Card.Body style={{paddingLeft:"0px",paddingTop:"10px"}}>
+                              <Card.Title>
+                                <h6>Wagholi Reviews</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      <Col xs={{ order: "last" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../Rinsight7.png"
+                              style={{ height: "13rem" }}
+                            />
+                            <Card.Body style={{paddingLeft:"0px",paddingTop:"10px"}}>
+                              <Card.Title>
+                                <h6>Wagholi Price Insights</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      <Col xs={{ order: "last" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../Rinsight6.png"
+                              style={{ height: "13rem" }}
+                            />
+                            <Card.Body style={{paddingLeft:"0px",paddingTop:"10px"}}>
+                              <Card.Title>
+                                <h6>Wagholi Transaction Price</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+
+                    <div>
+                      {" "}
+                      <Col xs={{ order: "first" }}>
+                        <div class="col-sm">
+                          <Card style={{ width: "13rem", border: "none" }}>
+                            <Card.Img
+                              variant="top"
+                              src="../Rinsight8.png"
+                              style={{ height: "13rem" }}
+                            />
+                            <Card.Body style={{paddingLeft:"0px",paddingTop:"10px"}}>
+                              <Card.Title>
+                                <h6>Buyer's Guide</h6>
+                              </Card.Title>
+
+                              {/* <Button variant="primary">Buy Now</Button> */}
+                            </Card.Body>
+                          </Card>
+                        </div>
+                      </Col>
+                    </div>
+                  </Carousel>
+                </Row>
+
+                <div className="mt-5"></div>
+              </Col>
+              <Col sm={4}>
+                <div
+                  className="sidefilter"
+                  style={{
+                    marginLeft: "100px",
+                    width: "350px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <Row style={{ margin: "10px" }}>
+                    <Form className="d-flex">
+                      <div style={{ marginRight: "80px" }}>
+                        <b>Verified Properties</b>
+                      </div>
+                      <Form.Check
+                        type="switch"
+                        id="custom-switch"
+                        // label="Verified Properties"
+                      />
+                    </Form>
+                  </Row>
+                  <hr />
+                  <Row style={{ margin: "10px" }}>
+                    <Form className="d-flex">
+                      <div style={{ marginRight: "90px" }}>
+                        <b>Hide already seen</b>
+                      </div>
+                      <Form.Check
+                        type="switch"
+                        id="custom-switch"
+                        // label="Verified Properties"
+                      />
+                    </Form>
+                  </Row>
+                  <hr />
+                  <Row style={{ margin: "10px" }}>
+                    <div>
+                      <Form>
+                        <h5>
+                          <b>Localities</b>
+                        </h5>
+                        <Row>
+                          <Col>
+                            {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Kharadi`}
+                                />
+                              </div>
+                            ))}
+                          </Col>
+                          <Col>
+                            {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Wakad`}
+                                />
+                              </div>
+                            ))}
+                          </Col>
+                        </Row>
+
+                        <Row>
+                          <Col>
+                            {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Kothrud`}
+                                />
+                              </div>
+                            ))}
+                          </Col>
+                          <Col>
+                            {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Wagholi`}
+                                />
+                              </div>
+                            ))}
+                          </Col>
+                        </Row>
+
+                        <Row>
+                          <Col>
+                            {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Hadapsar`}
+                                />
+                              </div>
+                            ))}
+                          </Col>
+                          <Col>
+                            {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Baner`}
+                                />
+                              </div>
+                            ))}
+                          </Col>
+                        </Row>
+                      </Form>
+                      <Button
+                        variant="light"
+                        style={{
+                          height: "30px",
+                          borderRadius: "10px",
+                          padding: "2px",
+                          marginLeft: "70px",
+                        }}
+                      >
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        &ensp;Explore more
+                      </Button>
+                    </div>
+                  </Row>
+                  <hr />
+                  <Row style={{ margin: "10px" }}>
+                    <h5>
+                      <b>Property Price</b>
+                    </h5>
+                    <Slider
+                      range
+                      defaultValue={[20, 50]}
+                      style={{ width: "300px", marginLeft: "10px" }}
+                    />
+                  </Row>
+                  <hr/>
+                  <Row style={{ margin: "10px" }}>
+                    
+                  <h5>
+                      <b>Furnished or Not</b>
+                    </h5>
+                    <div className="mt-2">
+                    {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Semifurnished`}
+                                />
+                              </div>
+                            ))}
+                    </div>
+
+                    <div>
+                    {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Furnished`}
+                                />
+                              </div>
+                            ))}
+                    </div>
+
+                    <div>
+                    {["checkbox"].map((type) => (
+                              <div key={`default-${type}`} className="mb-3">
+                                <Form.Check
+                                  type={type}
+                                  id={`default-${type}`}
+                                  label={`Unfurnished`}
+                                />
+                              </div>
+                            ))}
+                    </div>
+
+                  </Row>
+                  <hr/>
+
+
                 </div>
               </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../metrowork.jpeg" />
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Nestaway Technologies Pvt Ltd</h5>
-                      </Card.Title>
-                      <Card.Text>70+ Listings in this city</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../train2.jpeg" />
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Nestaway Technologies Pvt Ltd</h5>
-                      </Card.Title>
-                      <Card.Text>70+ Listings in this city</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "18rem", border: "none" }}>
-                    <Card.Img variant="top" src="../railwaylines.jpeg" />
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Nestaway Technologies Pvt Ltd</h5>
-                      </Card.Title>
-                      <Card.Text>70+ Listings in this city</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </Col>
-
-
-
-
             </Row>
-          </Container>
+          </div>
+        </div>
+        <div>
+          <div style={{ marginLeft: "120px", width: "1250px" }}>
+            <Row>
+              <h3>
+                <b>Projects in high demand</b>
+              </h3>
+              <h5>The most explored projects in Pune</h5>
+              <div className="mt-3"></div>
+
+              <Projects />
+            </Row>
+          </div>
         </div>
 
-
-
-        <div className="mt-5" style={{ width: "1000px" ,paddingLeft:"100px"}}>
-          <h3>Explore Real Estate in Popular Indian Cities</h3>
-          <h5>Top cities</h5>
-
-        </div>
-        <div className="mt-5"></div>
-        
-        <div id="cities">
-          <Row>
-        <Container>
-            <Row className="mt-3">
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "12rem", border: "none" }}>
-
-                    <Row>
-                      <Col style={{padding:0}}>
-                    <Card.Img variant="top" src="../pune.jpg" style={{width:"100px",height:"100px"}}/>
-                    </Col>
-                    <Col  style={{padding:0}}>
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Pune</h5>
-                      </Card.Title>
-                      <Card.Text>33k+ Properties</Card.Text>
-                    </Card.Body>
-                    </Col>
-                    </Row>
-                  </Card>
-                </div>
-              </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "12rem", border: "none" }}>
-                  <Row>
-                      <Col  style={{padding:0}}>
-                    <Card.Img variant="top" src="../delhi.jpg" style={{width:"100px",height:"100px"}}/>
-                    </Col>
-                    <Col  style={{padding:0}}>
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Delhi</h5>
-                      </Card.Title>
-                      <Card.Text>40k+ Properties</Card.Text>
-                    </Card.Body>
-                    </Col>
-                    </Row>
-                  </Card>
-                </div>
-              </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "12rem", border: "none" }}>
-                  <Row>
-                      <Col  style={{padding:0}}>
-                    <Card.Img variant="top" src="../chennai.jpg" style={{width:"100px",height:"100px"}}/>
-                    </Col>
-                    <Col  style={{padding:0}}>
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Chennai</h5>
-                      </Card.Title>
-                      <Card.Text>20k+ Properties</Card.Text>
-                    </Card.Body>
-                    </Col>
-                    </Row>
-                  </Card>
-                </div>
-              </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "12rem", border: "none" }}>
-                  <Row>
-                      <Col  style={{padding:0}}>
-                    <Card.Img variant="top" src="../banglore.jpg" style={{width:"100px",height:"100px"}}/>
-                    </Col>
-                    <Col  style={{padding:0}}>
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Banglore</h5>
-                      </Card.Title>
-                      <Card.Text>20k+ Properties</Card.Text>
-                    </Card.Body>
-                    </Col>
-                    </Row>
-                  </Card>
-                </div>
-              </Col>
-
-
-            </Row>
-          </Container>
-          
-          </Row>
-
-          <Row>
-        <Container>
-            <Row className="mt-3">
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "12rem", border: "none" }}>
-
-                    <Row>
-                      <Col  style={{padding:0}}>
-                    <Card.Img variant="top" src="../kolkata.jpg" style={{width:"100px",height:"100px"}}/>
-                    </Col>
-                    <Col  style={{padding:0}}>
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Kolkata</h5>
-                      </Card.Title>
-                      <Card.Text>15k+ Properties</Card.Text>
-                    </Card.Body>
-                    </Col>
-                    </Row>
-                  </Card>
-                </div>
-              </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "14rem", border: "none" }}>
-                  <Row>
-                      <Col  style={{padding:0}}>
-                    <Card.Img variant="top" src="../hyderabad.jpg" style={{width:"100px",height:"100px"}}/>
-                    </Col>
-                    <Col  style={{padding:0}}>
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Hyderabad</h5>
-                      </Card.Title>
-                      <Card.Text>10k+ Properties</Card.Text>
-                    </Card.Body>
-                    </Col>
-                    </Row>
-                  </Card>
-                </div>
-              </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "12rem", border: "none" }}>
-                  <Row>
-                      <Col  style={{padding:0}}>
-                    <Card.Img variant="top" src="../mumbai.jpg" style={{width:"100px",height:"100px"}}/>
-                    </Col>
-                    <Col  style={{padding:0}}>
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Mumbai</h5>
-                      </Card.Title>
-                      <Card.Text>40k+ Properties</Card.Text>
-                    </Card.Body>
-                    </Col>
-                    </Row>
-                  </Card>
-                </div>
-              </Col>
-
-              <Col>
-                <div class="col-sm">
-                  <Card style={{ width: "14rem", border: "none" }}>
-                  <Row>
-                      <Col  style={{padding:0}}>
-                    <Card.Img variant="top" src="../ahmedabad.jpg" style={{width:"100px",height:"100px"}}/>
-                    </Col>
-                    <Col  style={{padding:0}}>
-                    <Card.Body>
-                      <Card.Title>
-                        <h5>Ahmedabad</h5>
-                      </Card.Title>
-                      <Card.Text>26k+ Properties</Card.Text>
-                    </Card.Body>
-                    </Col>
-                    </Row>
-                  </Card>
-                </div>
-              </Col>
-
-
-            </Row>
-          </Container>
-          
-          </Row>
-
-        </div>
-
-
-        <div className="mt-5"></div>
-        <div className="mt-5"></div>
         <div className="mt-4"></div>
-        <div >
-          <Row className="mx-auto" style={{paddingLeft:"220px"}}>
+        <div>
+          <Row className="mx-auto" style={{ paddingLeft: "200px" }}>
             <Col>
-              <img src="appstore.webp"  />
+              <img src="appstore.webp" style={{ width: "1100px" }} />
             </Col>
           </Row>
         </div>
